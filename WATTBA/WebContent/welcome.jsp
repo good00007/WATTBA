@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome <%=session.getAttribute("name")%></title>
+<title>Welcome To our sandwich shop <%=session.getAttribute("name")%></title>
 </head>
 <body>
 	<h3>Login successful!!!</h3>
