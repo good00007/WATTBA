@@ -1,11 +1,24 @@
+//IF CONFLICT MANUALLY FIX THE CODE!
 //package com.amzi.dao;
-
+//My name is what?> 
+//<<<<<<< HEAD
+//I don't Know...
+//THE BIRD
+//=======
+//Slim shady.
+//So as the master, to update the just commit.  
+//>>>>>>> branch 'Bilal' of https://github.com/good00007/WATTBA.git
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+//MY NAME IS WHAT!???
+//<<<<<<< HEAD
+//I don't Know...
+//=======
+//Slim shady.
+//>>>>>>> branch 'Bilal' of https://github.com/good00007/WATTBA.git
 public class LoginDao {
     public static boolean validate(String name, String pass) {        
         boolean status = false;
