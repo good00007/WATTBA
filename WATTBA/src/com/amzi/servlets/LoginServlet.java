@@ -1,5 +1,5 @@
-//package com.amzi.servlets;
-
+package com.amzi.servlets;
+// this is a call to all my comits
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//import com.amzi.dao.LoginDao;
+import com.amzi.dao.LoginDao;
 
 public class LoginServlet extends HttpServlet{
 

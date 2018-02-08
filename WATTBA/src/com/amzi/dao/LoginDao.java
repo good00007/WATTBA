@@ -1,10 +1,12 @@
-//package com.amzi.dao;
-
+package com.amzi.dao;
+//change to doa
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Locale;
+
 
 public class LoginDao {
     public static boolean validate(String name, String pass) {        
@@ -12,16 +14,12 @@ public class LoginDao {
         Connection conn = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
-        // ehllo
-        
-        // hello
-        
-        //hello
+    
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "form";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "password";
+        String password = "David1287!";
         try {
             Class.forName(driver).newInstance();
             conn = DriverManager
