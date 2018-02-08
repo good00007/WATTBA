@@ -1,6 +1,7 @@
 //package com.amzi.dao;
 //My name is what?> 
 //Slim shady.
+//So as the master, to update the just commit.  
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
