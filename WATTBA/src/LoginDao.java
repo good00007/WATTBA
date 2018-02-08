@@ -1,11 +1,13 @@
 //package com.amzi.dao;
 //My name is what?> 
+//I don't Know
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 //MY NAME IS WHAT!???
+//I don't Know
 public class LoginDao {
     public static boolean validate(String name, String pass) {        
         boolean status = false;
