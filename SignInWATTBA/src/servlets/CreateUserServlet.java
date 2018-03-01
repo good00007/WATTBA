@@ -17,8 +17,7 @@ public class CreateUserServlet extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 	
-	//private static final String admin = "Administrator";
-	//private static final String user = "User";
+	
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,40 +40,7 @@ public class CreateUserServlet extends HttpServlet{
           rd.forward(request,response); 
 		}
 		
-		// If any parameter is null
-		//if (newUserName == null || newUserEmail == null || newUserPassword == null || newUserType == null) {
-			//RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-		//rd.forward(request, response);
-	//	}
-
-		// Get user type
-		//String ut = null;
-		//if (newUserType.equals(admin))
-	//		ut = admin;
-	//	if (newUserType.equals(user))
-	//		ut = user;
-	//	
-	
-
-		// If createNewUser method returns true
-	//	if (CreateUser.createNewUser(user)) {
-			// Get session and login newly created user
-		//	HttpSession session = request.getSession();
-		////	if (session != null) {
-				// Set up user cookie
-				
-				// Get userType homepage
-			//	String jsp = null;
-			//	if (user.getUserType().equals("User")) {
-			//		jsp = "welcome.jsp";
-			//	} 
-			//	
-				// redirect to home page
-			//	session.setAttribute("userType", jsp);
-            //    response.sendRedirect(jsp);
-                
-			//}
-		//}
+		
 		out.close();
 	}
 }

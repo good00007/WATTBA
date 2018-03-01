@@ -31,14 +31,10 @@ public class LoginServlet extends HttpServlet {
 	        // If login with given userBean is successful
 	        if(Login.validateUserLogin(user)) {
 	        	
-	        	// Start session and create use cookie
+	        	
 	        	HttpSession session = request.getSession(false);
 	            if(session!=null) {
-	            	//Set up user cookie
-	    		//	Cookie cookie = new Cookie("username", user.getUsername());
-	    		//	session.setMaxInactiveInterval(30*60);
-	    		//	cookie.setMaxAge(30*60);
-	    		//	response.addCookie(cookie);
+	            
 	            	session.setAttribute("signedIn", true);
 	            	
 	            	// Get user home page
@@ -48,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 	                	jsp = "User.jsp";
 	                }
 	                
-	                // redirect to correct login page
+	                
 	                session.setAttribute("userType", jsp);
 	                response.sendRedirect(jsp);
 	            }            
