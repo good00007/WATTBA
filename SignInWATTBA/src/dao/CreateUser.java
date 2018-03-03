@@ -13,9 +13,9 @@ import db.ConnectionManager;
 public class CreateUser{
 
 	public static boolean createNewUser(UserInfo newUser,UserDetails userDetails) { 
-		boolean status = false;					// Status of createNewUser
-		Connection conn = null;					// DB Connection
-		PreparedStatement insertUser = null;	// # of executed queries
+		boolean status = false;				
+		Connection conn = null;					
+		PreparedStatement insertUser = null;	
 		PreparedStatement insertUserDetails = null;
 	
 		int queeryresult = 0;	    

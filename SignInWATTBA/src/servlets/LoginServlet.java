@@ -19,11 +19,11 @@ public class LoginServlet extends HttpServlet {
 	  @Override
 	    public void doPost(HttpServletRequest request, HttpServletResponse response)  
 	            throws ServletException, IOException {
-	    	// Set content type and get form data from login.jsp
+	    	
 	        response.setContentType("text/html");  
 	        PrintWriter out = response.getWriter();        
-	        String loginEmail = request.getParameter("username");  
-	        String loginPass = request.getParameter("userpass");
+	        String loginEmail = request.getParameter("email");  
+	        String loginPass = request.getParameter("password");
 	        
 	       
 	        UserInfo user = new UserInfo(loginEmail, loginPass);
@@ -31,19 +31,16 @@ public class LoginServlet extends HttpServlet {
 	     
 	        if(Login.validateUserLogin(user)) {
 	        	
-	        	
 	        	HttpSession session = request.getSession(false);
 	            if(session!=null) {
 	            
 	            	session.setAttribute("signedIn", true);
-	            	
-	            	// Get user home page
 	            	String jsp = null;
-	                
-	                
-	                
-	                session.setAttribute("userType", jsp);
-	                response.sendRedirect(jsp);
+	            	
+	            	session.setAttribute("email", loginEmail);
+	            	jsp = "User.jsp";
+	            
+	            	response.sendRedirect(jsp);
 	            }            
 	        } else {
 	        	RequestDispatcher rd = request.getRequestDispatcher("login.jsp");  
@@ -53,3 +50,5 @@ public class LoginServlet extends HttpServlet {
 	    }  
 	  
 }
+
+

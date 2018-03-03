@@ -6,7 +6,7 @@
 <title>Welcome <%=session.getAttribute("name")%></title>
 </head>
 <body>
-	<h3>User Created Successfully!</h3>
+	<h3>Customer Created Successfully!</h3>
 	
 </body>
 </html>

@@ -23,7 +23,7 @@ public class CreateUserServlet extends HttpServlet{
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// set response type and get post data from jsp form
+	
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		   

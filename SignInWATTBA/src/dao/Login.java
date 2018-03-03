@@ -13,27 +13,27 @@ public class Login {
 	
 	public static boolean validateUserLogin(UserInfo user) { 
 		
-		boolean status = false;				// query status
-	    Connection conn = null;				// DB connection
-	    PreparedStatement getusers = null;	// SQL query
-	    ResultSet resultSet = null;			// returned query result set
+		boolean status = false;				
+	    Connection conn = null;				
+	    PreparedStatement getusers = null;	
+	    ResultSet resultSet = null;			
 	
 	   
 	    try {
 	        conn = ConnectionManager.getConnection();
-	        getusers = conn.prepareStatement("select user, userType, email, password from login where email=? and password=?");
+	        getusers = conn.prepareStatement("select email, password, name from customer where email=? and password=?");
 	        getusers.setString(1, user.getEmailAddress());
 	        getusers.setString(2, user.getPassword());
 	        resultSet = getusers.executeQuery();
 	        status = resultSet.next();
 	        
-	        // if status is true set username and usertype
+	       
 	        if(status) {
 	        	user.setUsername(resultSet.getString(1));
-	        	//user.setUserType(resultSet.getString(2));
+	        
 	        }
 	        
-	    // handle all possible exceptions
+	   //exceptions
 	    } catch (Exception e) {
 	        System.out.println(e);
 	    } finally {

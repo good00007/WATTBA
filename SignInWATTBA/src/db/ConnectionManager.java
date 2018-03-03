@@ -20,7 +20,7 @@ public class ConnectionManager {
 			Class.forName(driver).newInstance();
 			connection = DriverManager.getConnection(url + dbName, userName, password);
 
-			// Catch all possible exceptions
+			// exceptions
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
