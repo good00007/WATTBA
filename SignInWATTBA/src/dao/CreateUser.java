@@ -1,35 +1,52 @@
 package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.mysql.jdbc.Statement;
+
+import User.UserDetails;
 import User.UserInfo;
 import db.ConnectionManager;
 
 public class CreateUser{
 
-	public static boolean createNewUser(UserInfo newUser) { 
+	public static boolean createNewUser(UserInfo newUser,UserDetails userDetails) { 
 		boolean status = false;					// Status of createNewUser
 		Connection conn = null;					// DB Connection
 		PreparedStatement insertUser = null;	// # of executed queries
+		PreparedStatement insertUserDetails = null;
+	
 		int queeryresult = 0;	    
-
-		// Connect to Database and execute INSERT query with UserBean data
+		int queeryresult2 = 0;	
+		int customerId = 0;
 		try {
 			conn = ConnectionManager.getConnection();
-			insertUser = conn.prepareStatement("INSERT INTO login (`user`,`password`,`email`,`userType`)" + "VALUES (' " + newUser.getUsername() + "','" 
-			+ newUser.getPassword() + "','" + newUser.getEmailAddress() + "','" +  newUser.getUserType() + "'); ");
-			//insertUser = conn.prepareStatement("INSERT INTO login (`user`,`password`,`email`,`userType`)" + "VALUES ('Jonhson', 'Mr.', 'Springfield', 2001)");
-			
-			
+			insertUser = conn.prepareStatement("INSERT INTO customer (`email`,`password`,`name`,`is_deleted`)" + "VALUES ('" + newUser.getEmailAddress() + "','" 
+			+ newUser.getPassword() + "','" + newUser.getUsername()  + "','" + '1' + "'); ",Statement.RETURN_GENERATED_KEYS);
+		
 			queeryresult = insertUser.executeUpdate();
+			
+			ResultSet rs = insertUser.getGeneratedKeys();
+			
+		
+	       while(rs.next()){
+	      	customerId=rs.getInt(1);
 
-			// Return true if 1 query executes
-			if(queeryresult == 1) {
+	          }
+			
+			insertUserDetails = conn.prepareStatement("INSERT INTO customer_detail (`customer_id`,`address`,`postal_code`,`phone_number`)" + "VALUES ('" + customerId + "','" 
+					+ userDetails.getAddress() + "','" + userDetails.getpostalCode() + "','" + userDetails.getphoneNumber()  + "'); ");
+			
+			
+			queeryresult2 = insertUserDetails.executeUpdate();
+			
+			if(queeryresult == 1 && queeryresult2 == 1) {
 				status = true;
 			}
 
-			// Catch all possible Exceptions
+		
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {

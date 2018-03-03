@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CreateUser;
+import User.UserDetails;
 import User.UserInfo;
 
 
@@ -30,11 +31,14 @@ public class CreateUserServlet extends HttpServlet{
 		String newUserName = request.getParameter("username");
 		String newUserEmail = request.getParameter("email");
 		String newUserPassword = request.getParameter("userpass");
-		String newUserType = request.getParameter("usertype");
+		String newUserAddress = request.getParameter("address");
+		String newUserPostal = request.getParameter("postalcode");
+		String newUserPhone = request.getParameter("phoneNumber");
 		
-		UserInfo user = new UserInfo(newUserName, newUserEmail, newUserPassword, newUserType);
 		
-		if (CreateUser.createNewUser(user)) {
+		UserInfo user = new UserInfo(newUserName, newUserEmail, newUserPassword);
+		UserDetails userDetails = new UserDetails(newUserAddress, newUserPostal, newUserPhone);
+		if (CreateUser.createNewUser(user,userDetails)) {
 			
 		  RequestDispatcher rd=request.getRequestDispatcher("login.jsp");  
           rd.forward(request,response); 

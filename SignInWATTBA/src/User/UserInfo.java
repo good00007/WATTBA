@@ -2,10 +2,11 @@ package User;
 
 public class UserInfo {
 	
+	
 		private String username;
 		private String email;
 		private String password;
-		private String userType;
+	
 
 		
 		public UserInfo() {
@@ -15,13 +16,13 @@ public class UserInfo {
 			this.email = email;
 			this.password = pass;
 		}
-		public UserInfo(String un, String ea, String pass, String ut) {
+		public UserInfo(String un, String ea, String pass) {
 			this.username = un;
 			this.password = pass;	
 			this.email = ea;
-			this.userType = ut;
+			
 		}
-
+	
 	
 		public String getUsername() {
 			return this.username;
@@ -34,10 +35,7 @@ public class UserInfo {
 		public String getPassword() {
 			return this.password;
 		}
-		
-		public String getUserType() {
-			return this.userType;
-		}
+	
 		
 		public void setUsername(String un) {
 			this.username = un;
@@ -51,7 +49,5 @@ public class UserInfo {
 			this.password = pass;
 		}
 		
-		public void setUserType(String ut) {
-			this.userType = ut;
-		}
+		
 }

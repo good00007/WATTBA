@@ -25,10 +25,10 @@ public class LoginServlet extends HttpServlet {
 	        String loginEmail = request.getParameter("username");  
 	        String loginPass = request.getParameter("userpass");
 	        
-	        // Create new userBean
+	       
 	        UserInfo user = new UserInfo(loginEmail, loginPass);
 	        
-	        // If login with given userBean is successful
+	     
 	        if(Login.validateUserLogin(user)) {
 	        	
 	        	
@@ -39,10 +39,7 @@ public class LoginServlet extends HttpServlet {
 	            	
 	            	// Get user home page
 	            	String jsp = null;
-	                if(user.getUserType().equals("user")) {
-	                	session.setAttribute("email", loginEmail);
-	                	jsp = "User.jsp";
-	                }
+	                
 	                
 	                
 	                session.setAttribute("userType", jsp);

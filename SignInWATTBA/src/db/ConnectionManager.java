@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 
 public class ConnectionManager {
 	private static String url = "jdbc:mysql://localhost:3306/";
-	private static	String dbName = "form";
+	private static	String dbName = "the_wich";
 	private static String driver = "com.mysql.jdbc.Driver";
 	private static String userName = "root";
 	private static String password = "2v0b1c8";

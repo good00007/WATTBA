@@ -11,21 +11,29 @@
 			<legend> Create a user </legend>
 			<table>
 				<tr>
-					<td>User ID</td>
-					<td><input type="text" name="username" required="required" /></td>
-				</tr>
-				
-				<tr>
-					<td>email</td>
+					<td>Email</td>
 					<td><input type="text" name="email" required="required" /></td>
 				</tr>
+				
 				<tr>
 					<td>Password</td>
 					<td><input type="password" name="userpass" required="required" /></td>
 				</tr>
 				<tr>
-					<td>user type</td>
-					<td><input type="text" name="usertype" required="required" /></td>
+					<td>Name</td>
+					<td><input type="text" name="username" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td><input type="text" name="address" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Postal Code</td>
+					<td><input type="text" name="postalcode" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Phone Number</td>
+					<td><input type="text" name="phoneNumber" required="required" /></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Create User" /></td>
