@@ -26,7 +26,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <div class="w3-top w3-hide-small">
 <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#" class="w3-bar-item w3-button">WebSiteName</a>
+      <a class="navbar-brand" href="#" class="w3-bar-item w3-button">WATTBA</a>
     </div>
       <ul class="nav navbar-nav">
         <li><a href="#menu">MENU</a></li>
@@ -46,8 +46,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <span class="w3-tag w3-xlarge">Open from 10am to 12pm</span>
   </div>
   <div class="w3-display-middle w3-center">
-    <span class="w3-text-white w3-hide-small" style="font-size:100px">thin<br>CRUST PIZZA</span>
-    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>
+    <span class="w3-text-white w3-hide-small" style="font-size:100px">WATTBA<br>Sandwiches</span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>WATTBA<br>Sandwiches</b></span>
     <p><a href="#menu" class="w3-button w3-xxlarge w3-black">Let me see the menu</a></p>
   </div>
 </header>
@@ -227,4 +227,3 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-	
