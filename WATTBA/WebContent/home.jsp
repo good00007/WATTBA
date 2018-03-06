@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html>
-<title>WATTBA SANDWHICHES</title>
+<title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,7 +27,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <div class="w3-top w3-hide-small">
 <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#" class="w3-bar-item w3-button">WATTBA Sandwiches</a>
+      <a class="navbar-brand" href="#" class="w3-bar-item w3-button">WATTBA</a>
     </div>
       <ul class="nav navbar-nav">
         <li><a href="#menu">MENU</a></li>
@@ -35,16 +35,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
         <li><a href="#googleMap">CONTACT</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-     <form action="index.jsp">
-    <button type="submit">
-     <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-   </button>
-		</form>
-        <form action="login.jsp">
-    <button type="submit">
+      
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </button>
-        </form>
+      
       </ul>
 </div>
 </div>
@@ -62,7 +56,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 </header>
 
 <!-- Menu Container -->
-<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+<div class="w3-container w3-blue-grey w3-padding-64 w3-xxlarge" id="menu">
   <div class="w3-content">
   
     <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h>
@@ -124,13 +118,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
   </div>
 </div>
+
 <!-- About Container -->
-<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale w3-xlarge" id="about">
   <div class="w3-content">
     <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">About</h1>
     <p>WHO WE ARE<br>
 We bring big flavor<br>
-For 35 years, WATTBA has taken pride in bringing big flavour with quality ingredients. We are the pioneers of the toasted sub, serving you hot toasted subs made with butcher-quality meats and all natural cheeses. We are committed to serving great tasting Chef inspired food made with ingredients you can trust.</p>
+For 35 years, Quiznos has taken pride in bringing big flavour with quality ingredients. We are the pioneers of the toasted sub, serving you hot toasted subs made with butcher-quality meats and all natural cheeses. We are committed to serving great tasting Chef inspired food made with ingredients you can trust.</p>
     <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p>
     <p>We are proud of our interiors.</p>
     <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant">
@@ -138,16 +133,14 @@ For 35 years, WATTBA has taken pride in bringing big flavour with quality ingred
     
     <div class="w3-row">
       <div class="w3-col s6">
-        <p>Monday 11:00 - 9:00</p>
-         <p>Tuesday 11:00 - 9:00</p>
-          <p>Wednesday 11:00 - 9:00</p>
-        <p>Thursday 10.00 - 9:00</p>
-        <p>Friday 10:00 - 9:00</p>
+        <p>Mon & Tue CLOSED</p>
+        <p>Wednesday 10.00 - 24.00</p>
+        <p>Thursday 10:00 - 24:00</p>
       </div>
       <div class="w3-col s6">
-   
-        <p>Saturday 11:00 - 9:00</p>
-        <p>Sunday 11:00 - 6:00</p>
+        <p>Friday 10:00 - 12:00</p>
+        <p>Saturday 10:00 - 23:00</p>
+        <p>Sunday Closed</p>
       </div>
     </div>
     
@@ -164,23 +157,30 @@ For 35 years, WATTBA has taken pride in bringing big flavour with quality ingred
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
     <p class="w3-xxlarge"><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
     <form action="http://www.subway.com/en-ca">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="First name" required name="First name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Last name" name="Last name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="tel" placeholder="Telephone number" required name="Telephone number"></p>
       
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="City" name="City"></p>
-      <p><div class="dropdown" style="float:left;">
+      <p><input class="content-first-name w3-button w3-light-grey w3-block" type="text" placeholder="First name" required name="First name"><p>
+      <p><input class="content-last-name w3-button w3-light-grey w3-block" type="text" placeholder="Last name" name="Last name"></p>
+      <p><input class="content-phone-number w3-button w3-light-grey w3-block" type="tel" placeholder="Telephone number" required name="Telephone number"></p>
+      
+      <p><input class="content-city w3-button w3-light-grey w3-block" type="text" placeholder="City" name="City"></p>
+      <p><input class="content-province w3-button w3-light-grey w3-block" type="text" placeholder="Province" name="Province"></p>
+
+<!--     
+  <p><div class="dropdown">
         <button class="dropbtn">Country</button>
         <div class="dropdown-content" style="left:0;">
           <a href="#">Country</a>
           <a href="#">Canada</a>
         </div>
       </div></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Postal code" name="Postal code"></p>
-      <p><input type="radio" name="gender" value="male" checked> Male<br></p>
+-->
+      <p><input class="content-province w3-button w3-light-grey w3-block" type="text" placeholder="Postal code" name="Postal code"></p>
+<!-- 
+     <p><input type="radio" name="gender" value="male" checked> Male<br></p>
       <p><input type="radio" name="gender" value="female"> Female<br></p>
       <p><input type="radio" name="gender" value="other"> Other<br><br></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+-->
+      <p><input class="content-message w3-button w3-light-grey w3-block" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
       <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
     </form>
   </div>
@@ -188,7 +188,7 @@ For 35 years, WATTBA has taken pride in bringing big flavour with quality ingred
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
-  <p>WATTBA Sandwich. The Sandwich for me and you!!!</p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
 
 <!-- Add Google Maps -->
@@ -234,4 +234,4 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-
+	
