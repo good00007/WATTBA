@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html>
 <title>WATTBA SANDWHICHES</title>
@@ -65,7 +62,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
   <div class="w3-content">
   
-    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h>
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h1	
     
 <div class="container"> <!-- End of container -->
 <div class="row">
@@ -110,7 +107,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
      <h1>WATTABA Sandwich</h1>
     <h3>Create Your Perfect Sandwich</h3>
     <hr>
-   
+    </form>
         <form action="login.jsp">
     <button class="btn btn-default btn-lg">Get Started!</button>
       </form>
@@ -234,4 +231,3 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-
