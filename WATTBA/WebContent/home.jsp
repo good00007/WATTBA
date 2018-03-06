@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%><!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="galary.css"> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/galary.css"> 
+<link rel="stylesheet" type="text/css" href="css/myGalary.css"> 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">                                      <!-- This line is responsible for formatting the text font throughout the page -->
 <style>
 body, html {height: 100%}
@@ -24,7 +25,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <div class="w3-top w3-hide-small">
 <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#" class="w3-bar-item w3-button">WebSiteName</a>
+      <a class="navbar-brand" href="#" class="w3-bar-item w3-button">WATTBA</a>
     </div>
       <ul class="nav navbar-nav">
         <li><a href="#menu">MENU</a></li>
@@ -44,8 +45,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <span class="w3-tag w3-xlarge">Open from 10am to 12pm</span>
   </div>
   <div class="w3-display-middle w3-center">
-    <span class="w3-text-white w3-hide-small" style="font-size:100px">thin<br>CRUST PIZZA</span>
-    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>
+    <span class="w3-text-white w3-hide-small" style="font-size:100px">WATTABA<br>Sandwiches</span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>WATTABA<br>Sandwiches</b></span>
     <p><a href="#menu" class="w3-button w3-xxlarge w3-black">Let me see the menu</a></p>
   </div>
 </header>
@@ -54,7 +55,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
   <div class="w3-content">
   
-    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h1>
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h1>	
     
 <div class="container"> <!-- End of container -->
 <div class="row">
@@ -114,7 +115,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
   <div class="w3-content">
     <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">About</h1>
-    <p>The Pizza Restaurant was founded in blabla by Mr. Italiano in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>WHO WE ARE<br>
+We bring big flavor<br>
+For 35 years, Quiznos has taken pride in bringing big flavour with quality ingredients. We are the pioneers of the toasted sub, serving you hot toasted subs made with butcher-quality meats and all natural cheeses. We are committed to serving great tasting Chef inspired food made with ingredients you can trust.</p>
     <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p>
     <p>We are proud of our interiors.</p>
     <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant">
@@ -145,10 +148,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <p>Find us at some address at some place or call us at 05050515-122330</p>
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
     <p class="w3-xxlarge"><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
+    <form action="http://www.subway.com/en-ca">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="First name" required name="First name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Last name" name="Last name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="tel" placeholder="Telephone number" required name="Telephone number"></p>
+      
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="City" name="City"></p>
+      <p><div class="dropdown" style="float:left;">
+        <button class="dropbtn">Country</button>
+        <div class="dropdown-content" style="left:0;">
+          <a href="#">Country</a>
+          <a href="#">Canada</a>
+        </div>
+      </div></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Postal code" name="Postal code"></p>
+      <p><input type="radio" name="gender" value="male" checked> Male<br></p>
+      <p><input type="radio" name="gender" value="female"> Female<br></p>
+      <p><input type="radio" name="gender" value="other"> Other<br><br></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
       <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
     </form>
@@ -157,7 +173,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="POOP.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
 
 <!-- Add Google Maps -->
@@ -203,5 +219,3 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-	
-	
