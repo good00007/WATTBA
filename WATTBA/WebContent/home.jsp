@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>WATTBA Sandwiches</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,7 +26,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <div class="w3-top w3-hide-small">
 <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#" class="w3-bar-item w3-button">WebSiteName</a>
+      <a class="navbar-brand" href="#" class="w3-bar-item w3-button">WATTBA</a>
     </div>
       <ul class="nav navbar-nav">
         <li><a href="#menu">MENU</a></li>
@@ -46,8 +46,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <span class="w3-tag w3-xlarge">Open from 10am to 12pm</span>
   </div>
   <div class="w3-display-middle w3-center">
-    <span class="w3-text-white w3-hide-small" style="font-size:100px">thin<br>CRUST PIZZA</span>
-    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>
+    <span class="w3-text-white w3-hide-small" style="font-size:100px">WATTBA<br>Sandwiches</span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>WATTBA<br>Sandwiches</b></span>
     <p><a href="#menu" class="w3-button w3-xxlarge w3-black">Let me see the menu</a></p>
   </div>
 </header>
@@ -150,23 +150,30 @@ For 35 years, Quiznos has taken pride in bringing big flavour with quality ingre
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
     <p class="w3-xxlarge"><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
     <form action="http://www.subway.com/en-ca">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="First name" required name="First name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Last name" name="Last name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="tel" placeholder="Telephone number" required name="Telephone number"></p>
       
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="City" name="City"></p>
-      <p><div class="dropdown" style="float:left;">
+      <p><input class="content-first-name w3-button w3-light-grey w3-block" type="text" placeholder="First name" required name="First name"><p>
+      <p><input class="content-last-name w3-button w3-light-grey w3-block" type="text" placeholder="Last name" name="Last name"></p>
+      <p><input class="content-phone-number w3-button w3-light-grey w3-block" type="tel" placeholder="Telephone number" required name="Telephone number"></p>
+      
+      <p><input class="content-city w3-button w3-light-grey w3-block" type="text" placeholder="City" name="City"></p>
+      <p><input class="content-province w3-button w3-light-grey w3-block" type="text" placeholder="Province" name="Province"></p>
+
+<!--     
+  <p><div class="dropdown">
         <button class="dropbtn">Country</button>
         <div class="dropdown-content" style="left:0;">
           <a href="#">Country</a>
           <a href="#">Canada</a>
         </div>
       </div></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Postal code" name="Postal code"></p>
-      <p><input type="radio" name="gender" value="male" checked> Male<br></p>
+-->
+      <p><input class="content-province w3-button w3-light-grey w3-block" type="text" placeholder="Postal code" name="Postal code"></p>
+<!-- 
+     <p><input type="radio" name="gender" value="male" checked> Male<br></p>
       <p><input type="radio" name="gender" value="female"> Female<br></p>
       <p><input type="radio" name="gender" value="other"> Other<br><br></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+-->
+      <p><input class="content-message w3-button w3-light-grey w3-block" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
       <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
     </form>
   </div>
