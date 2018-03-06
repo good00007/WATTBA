@@ -33,7 +33,7 @@
 				</tr>
 				<tr>
 					<td>Phone Number</td>
-					<td><input type="text" name="phoneNumber" required="required" /></td>
+						<td><input type="number" name="phoneNumber"  maxlength="10" required="required" /></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Create User" /></td>
