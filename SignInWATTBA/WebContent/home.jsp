@@ -49,7 +49,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-bottomleft w3-padding">
-    <span class="w3-tag w3-xlarge">Open from 11am to 9pm</span>
+   <!-- <span class="w3-tag w3-xlarge"></span>-->
   </div>
   <div class="w3-display-middle w3-center">
     <span class="w3-text-white w3-hide-small" style="font-size:100px">WATTBA<br>WATTBA</span>
@@ -105,7 +105,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   <div class="col-lg-6 col-md-6 col-sm-12">
   <div id="content">
      <h1>WATTABA Sandwich</h1>
-    <h3>Create Your Perfect Sandwitch</h3>
+    <h3>Create Your Perfect Sandwich</h3>
     <hr>
     </form>
         <form action="login.jsp">
@@ -127,7 +127,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">About</h1>
     <p>WHO WE ARE<br>
 We bring big flavor<br>
-For 35 years, Quiznos has taken pride in bringing big flavour with quality ingredients. We are the pioneers of the toasted sub, serving you hot toasted subs made with butcher-quality meats and all natural cheeses. We are committed to serving great tasting Chef inspired food made with ingredients you can trust.</p>
+For 35 years, WATTBA has taken pride in bringing big flavour with quality ingredients. We are the pioneers of the toasted sub, serving you hot toasted subs made with butcher-quality meats and all natural cheeses. We are committed to serving great tasting Chef inspired food made with ingredients you can trust.</p>
     <p><strong>The Chef?</strong> Mr. Italiano himself<img src="/w3images/chef.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p>
     <p>We are proud of our interiors.</p>
     <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant">
@@ -135,14 +135,16 @@ For 35 years, Quiznos has taken pride in bringing big flavour with quality ingre
     
     <div class="w3-row">
       <div class="w3-col s6">
-        <p>Mon & Tue CLOSED</p>
-        <p>Wednesday 10.00 - 24.00</p>
-        <p>Thursday 10:00 - 24:00</p>
+        <p>Monday 11:00 - 9:00</p>
+         <p>Tuesday 11:00 - 9:00</p>
+          <p>Wednesday 11:00 - 9:00</p>
+        <p>Thursday 10.00 - 9:00</p>
+        <p>Friday 10:00 - 9:00</p>
       </div>
       <div class="w3-col s6">
-        <p>Friday 10:00 - 12:00</p>
-        <p>Saturday 10:00 - 23:00</p>
-        <p>Sunday Closed</p>
+   
+        <p>Saturday 11:00 - 9:00</p>
+        <p>Sunday 11:00 - 6:00</p>
       </div>
     </div>
     
@@ -183,7 +185,7 @@ For 35 years, Quiznos has taken pride in bringing big flavour with quality ingre
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  <p>WATTBA Sandwich. The Sandwich for me and you!!!</p>
 </footer>
 
 <!-- Add Google Maps -->
