@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@ page import=" java.sql.Statement"%>
+<%@ page import=" db.ConnectionManager"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.ResultSet" %>
+
 <html lang="en">
 <head>
   <title>WATTBA Sandwiches</title>
@@ -7,7 +11,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/style.css">  
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
@@ -31,7 +34,7 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>WATTBA Sandwiches</h1>      
+     <h1>WATTBA Sandwiches</h1>      
     <p>Sandwiches & Sandwiches</p>
   </div>
 </div>
@@ -55,48 +58,15 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-     
-        <li><a href="#"><span id="modalBtn" class="glyphicon glyphicon-user"></span> Sign up/Log in</a></li>
-       
-        <div id="modal" class="modal">
-			<span class="closeBtn">&times;</span>
-			<div class="loginform">
-			<img src="images/user.jpg" class="user">
-				<div style="float:left; /*background: rgba(0,0,0,.5);*/">
-				<h2>Log In</h2>
-				<form action="loginServlet" method="post">
-					<p>Email</p>
-					<input type="text" name="email" placeholder="Enter Email">
-					<p>Password</p>
-					<input type="password" name="password" placeholder="Enter Password">
-					<p></p>
-					<input type="submit" value="Login" />
-					<p></p>
-					<a href="#">Forget Password</a>
-				</form>
-				</div>
-				<div class="register" style="float:right;">
-				<h2>Register</h2>
-				<form action="CreateUser" method="post">
-					<p>Email</p>
-					<input type="text" name="email" placeholder="Enter Email">
-					<p>Password</p>
-					<input type="password" name="userpass" placeholder="Enter Password">
-					<p>Name</p>
-					<input type="text" name="username" placeholder="Enter First and Last Name">
-					<p>Address</p>
-					<input type="text" name="address" placeholder="e.g. 123 aabbcc st">
-					<p>Postal Code</p>
-					<input type="text" name="postalcode" placeholder="Enter Postal Code">
-					<p>Phone #</p>
-					<input type="text" name="phoneNumber" placeholder="Enter Phone Number">
-					<p></p>
-					<input type="submit" value="Create User" />
-				</form>
-				</div>
-			</div>
-		</div>
-		<script src="Javascript/main.js"></script>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%=session.getAttribute("email")%><span class="glyphicon glyphicon-user"></span></a>
+        
+          <ul class="dropdown-menu">
+             <li><a href="#">Account<span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+            <li class="divider"></li>
+            <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+          </ul>
+        </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>

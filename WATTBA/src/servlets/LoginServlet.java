@@ -24,8 +24,8 @@ public class LoginServlet extends HttpServlet {
 	        PrintWriter out = response.getWriter();        
 	        String loginEmail = request.getParameter("email");  
 	        String loginPass = request.getParameter("password");
+	     
 	        
-	       
 	        UserInfo user = new UserInfo(loginEmail, loginPass);
 	        
 	     
@@ -37,13 +37,14 @@ public class LoginServlet extends HttpServlet {
 	            	session.setAttribute("signedIn", true);
 	            	String jsp = null;
 	            	
+	            	
 	            	session.setAttribute("email", loginEmail);
-	            	jsp = "User.jsp";
+	            	jsp = "customerhome.jsp";
 	            
 	            	response.sendRedirect(jsp);
 	            }            
 	        } else {
-	        	RequestDispatcher rd = request.getRequestDispatcher("login.jsp");  
+	        	RequestDispatcher rd = request.getRequestDispatcher("home.jsp");  
 	            rd.forward(request, response);  
 	        }
 	        out.close();  

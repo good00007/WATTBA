@@ -24,13 +24,14 @@ public class Login {
 	        getusers = conn.prepareStatement("select email, password, name from customer where email=? and password=?");
 	        getusers.setString(1, user.getEmailAddress());
 	        getusers.setString(2, user.getPassword());
+	     
 	        resultSet = getusers.executeQuery();
 	        status = resultSet.next();
 	        
 	       
 	        if(status) {
-	        	user.setUsername(resultSet.getString(1));
-	        
+	        	user.setEmail(resultSet.getString(1));
+	        	
 	        }
 	        
 	   //exceptions

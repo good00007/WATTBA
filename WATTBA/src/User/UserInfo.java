@@ -18,9 +18,8 @@ public class UserInfo {
 		}
 		public UserInfo(String un, String ea, String pass) {
 			this.username = un;
-			this.password = pass;	
 			this.email = ea;
-			
+			this.password = pass;	
 		}
 	
 	

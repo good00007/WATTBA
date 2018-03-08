@@ -40,7 +40,7 @@ public class CreateUserServlet extends HttpServlet{
 		UserDetails userDetails = new UserDetails(newUserAddress, newUserPostal, newUserPhone);
 		if (CreateUser.createNewUser(user,userDetails)) {
 			
-		  RequestDispatcher rd=request.getRequestDispatcher("login.jsp");  
+		  RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
           rd.forward(request,response); 
 		}
 		
