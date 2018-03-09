@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 		//String loginUser = request.getParameter("username");
 		AdminInfo admin = new AdminInfo(loginEmail, loginPass);
 		UserInfo user = new UserInfo(loginEmail, loginPass);
-		//  AdminInfo admin = new AdminInfo(loginEmail, loginPass);
+		
 
 		if(Login.validateLogin(user)) {
 
@@ -43,7 +42,11 @@ public class LoginServlet extends HttpServlet {
 	            
             	response.sendRedirect(jsp);
 				
-			}            
+			}   else {
+				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");  
+				rd.forward(request, response); 
+			 
+		}           
 		}
 		else if(Login.validateAdminLogin(admin)){
 			HttpSession session = request.getSession(false);
@@ -51,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 
 				session.setAttribute("signedIn", true);
 				String jsp = null;
-				//if(user.getEmailAddress() != null){
+			
 				session.setAttribute("email", loginEmail);
 				jsp = "adminhome.jsp";
 	            
@@ -66,7 +69,7 @@ public class LoginServlet extends HttpServlet {
 				rd.forward(request, response); 
 			 
 		}  
-out.close(); 
+				out.close(); 
 	}
 }
 
