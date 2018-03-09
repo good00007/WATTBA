@@ -18,6 +18,7 @@
     /* Remove the jumbotron's default bottom margin */ 
      .jumbotron {
       margin-bottom: 0;
+      background-image: url("images/sandwich.jpg");
     }
    
     /* Add a gray background color and some padding to the footer */
@@ -25,6 +26,12 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
+    
+  #header {
+   background-image: url("images/sandwich.jpg");
+     
+}
+
   </style>
 </head>
 <body>

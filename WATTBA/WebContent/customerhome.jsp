@@ -64,7 +64,8 @@
           <ul class="dropdown-menu">
              <li><a href="#">Account<span class="glyphicon glyphicon-cog pull-right"></span></a></li>
             <li class="divider"></li>
-            <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+            <li><a href="LogoutServlet">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+            
           </ul>
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
