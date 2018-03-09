@@ -5,7 +5,7 @@
 
 <html lang="en">
 <head>
-  <title>WATTBA Sandwiches</title>
+  <title>WATTBA Sandwiches Administrator</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -34,8 +34,8 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-     <h1>WATTBA Sandwiches</h1>      
-    <p>Sandwiches & Sandwiches</p>
+     <h1>WATTBA Sandwich Administrator</h1>      
+    <p>Hello Mr. Administrator</p>
   </div>
 </div>
 
@@ -59,7 +59,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span>&nbsp<%=session.getAttribute("email")%></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp<%=session.getAttribute("email")%></a>
         
           <ul class="dropdown-menu">
              <li><a href="#">Account<span class="glyphicon glyphicon-cog pull-right"></span></a></li>
