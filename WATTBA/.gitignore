@@ -48,7 +48,6 @@ local.properties
 
 # Code Recommenders
 .recommenders/
-<<<<<<< HEAD
-=======
+
 /build/
->>>>>>> branch 'Bilal' of https://github.com/good00007/WATTBA
+
