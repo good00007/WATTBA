@@ -1,5 +1,15 @@
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@page import="javax.servlet.http.*,javax.servlet.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="com.example.i18n.text"/>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="${language}">
 <head>
   <title>WATTBA Sandwiches</title>
   <meta charset="utf-8">
@@ -12,7 +22,7 @@
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
       margin-bottom: 50px;
-      border-radius: 0;
+      border-radius: 0;	
     }
     
     /* Remove the jumbotron's default bottom margin */ 
@@ -31,6 +41,7 @@
    background-image: url("images/sandwich.jpg");
      
 }
+
 
   </style>
 </head>
@@ -54,57 +65,70 @@
       <a class="navbar-brand" href="#">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">Stores</a></li>
-        <li><a href="#">Contact</a></li>
+      <ul class="nav navbar-nav">	
+     
+        <li class="active"><a href="#"><fmt:message key="main.home" /></a></li>
+        <li><a href="#"><fmt:message key="main.products" /></a></li>
+        <li><a href="#"><fmt:message key="main.deals" /></a></li>
+        <li><a href="#"><fmt:message key="main.stores" /></a></li>
+        <li><a href="#"><fmt:message key="main.contact" /></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-     
-        <li><a href="#"><span id="modalBtn" class="glyphicon glyphicon-user"></span> Sign up/Log in</a></li>
-       
+     <li><span id="language"></span>
+  	    <form>
+            <select id="language" name="language" onchange="submit()">
+                <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+               	<option value="fr" ${language == 'fr' ? 'selected' : ''}>French</option>
+            </select>
+         </form>
+         </li>
+        <li><a href="#" id="modalBtn"><span id="modalBtn" class="glyphicon glyphicon-user"></span>&nbsp<fmt:message key="main.login" /></a></li>
         <div id="modal" class="modal">
 			<span class="closeBtn">&times;</span>
 			<div class="loginform">
 			<img src="images/user.jpg" class="user">
 				<div style="float:left; /*background: rgba(0,0,0,.5);*/">
-				<h2>Log In</h2>
+				
+				<h2><fmt:message key="login.login" /></h2>
+				
 				<form action="loginServlet" method="post">
-					<p>Email</p>
-					<input type="text" name="email" placeholder="Enter Email">
-					<p>Password</p>
-					<input type="password" name="password" placeholder="Enter Password">
+				
+					<p><fmt:message key="login.email"/></p>
+					
+					<input type="text" name="email" required placeholder="<fmt:message key="placeholder.EnterEmail"/>">
+					<p><fmt:message key="login.password"/></p>
+					<input type="password" name="password" required placeholder="<fmt:message key="placeholder.EnterPassword"/>">
 					<p></p>
-					<input type="submit" value="Login" />
+					<input type="submit" value="<fmt:message key="login.login"/>" />
 					<p></p>
-					<a href="#">Forget Password</a>
+					<a href="#"><fmt:message key="placeholder.Forgotpassword"/></a>
 				</form>
 				</div>
 				<div class="register" style="float:right;">
-				<h2>Register</h2>
+				<h2><fmt:message key="register"/></h2>
 				<form action="CreateUser" method="post">
-					<p>Email</p>
-					<input type="text" name="email" placeholder="Enter Email">
-					<p>Password</p>
-					<input type="password" name="userpass" placeholder="Enter Password">
-					<p>Name</p>
-					<input type="text" name="username" placeholder="Enter First and Last Name">
-					<p>Address</p>
-					<input type="text" name="address" placeholder="e.g. 123 aabbcc st">
-					<p>Postal Code</p>
-					<input type="text" name="postalcode" placeholder="Enter Postal Code">
-					<p>Phone #</p>
-					<input type="text" name="phoneNumber" placeholder="Enter Phone Number">
+					<p><fmt:message key="login.email"/></p>
+					<input type="text" name="email" required placeholder="<fmt:message key="placeholder.EnterEmail"/>">
+					<p><fmt:message key="login.password"/></p>
+					<input type="password" name="userpass" required placeholder="<fmt:message key="placeholder.EnterPassword"/>">
+					<p><fmt:message key="register.name"/></p>
+					<input type="text" name="username" required placeholder="<fmt:message key="placeholder.EnterFirstLastName"/>">
+				<p><fmt:message key="register.address"/></p>
+					<input type="text" name="address" required placeholder="e.g. 123 aabbcc st">
+					<p><fmt:message key="register.postalcode"/></p>
+					<input type="text" name="postalcode" required placeholder="<fmt:message key="placeholder.EnterPostalCode"/>">
+					<p><fmt:message key="register.phone"/></p>
+					<input type="text" name="phoneNumber" required placeholder="<fmt:message key="placeholder.EnterPhoneNumber"/>">
 					<p></p>
-					<input type="submit" value="Create User" />
+					<input type="submit" value="<fmt:message key="register.createuser"/>" />
 				</form>
 				</div>
 			</div>
 		</div>
 		<script src="Javascript/main.js"></script>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp<fmt:message key="main.orders" /></a></li>
+       
+     
       </ul>
     </div>
   </div>
@@ -114,53 +138,28 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-heading">Sandwich 1</div>
+        <div class="panel-body"></div>
         <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-heading">Sandwich 2</div>
         <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
         <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-success">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-heading">Sandwich 3</div>
         <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
         <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
       </div>
     </div>
   </div>
 </div><br>
-
-<div class="container">    
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-  </div>
-</div><br><br>
+<br><br>
 
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>  

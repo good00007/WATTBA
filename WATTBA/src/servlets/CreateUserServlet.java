@@ -18,8 +18,6 @@ public class CreateUserServlet extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 	
-	
-	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -39,9 +37,15 @@ public class CreateUserServlet extends HttpServlet{
 		UserInfo user = new UserInfo(newUserName, newUserEmail, newUserPassword);
 		UserDetails userDetails = new UserDetails(newUserAddress, newUserPostal, newUserPhone);
 		if (CreateUser.createNewUser(user,userDetails)) {
-			
-		  RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
-          rd.forward(request,response); 
+			response.sendRedirect("home.jsp");
+		 // RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
+          //rd.forward(request,response); 
+		}else{
+			//request.setAttribute("errorMessage", "Error. Email already exist. Please try again");
+			//response.sendRedirect("home.jsp"); 
+	        // rd.include(request,response); 
+			RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
+	         rd.include(request,response); 
 		}
 		
 		

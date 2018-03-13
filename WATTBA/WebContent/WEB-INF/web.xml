@@ -30,6 +30,15 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
+        <servlet>
+        <servlet-name>UpdateInfoServlet</servlet-name>
+        <servlet-class>servlets.UpdateInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateInfoServlet</servlet-name>
+        <url-pattern>/UpdateInfo</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>

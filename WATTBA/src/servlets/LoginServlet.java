@@ -43,8 +43,8 @@ public class LoginServlet extends HttpServlet {
             	response.sendRedirect(jsp);
 				
 			}   else {
-				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");  
-				rd.forward(request, response); 
+				response.sendRedirect("home.jsp");
+				//HttpServletResponse.sendRedirect("/your/new/location.jsp")
 			 
 		}           
 		}
@@ -65,9 +65,7 @@ public class LoginServlet extends HttpServlet {
 		
 			 
 			}else {
-				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");  
-				rd.forward(request, response); 
-			 
+				response.sendRedirect("home.jsp");
 		}  
 				out.close(); 
 	}

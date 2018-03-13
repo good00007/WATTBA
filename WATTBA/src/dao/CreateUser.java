@@ -17,22 +17,34 @@ public class CreateUser{
 		Connection conn = null;					
 		PreparedStatement insertUser = null;	
 		PreparedStatement insertUserDetails = null;
-	
+		PreparedStatement emailCheck = null;
 		int queeryresult = 0;	    
 		int queeryresult2 = 0;	
+		int emailcheckQ = 0;
 		int customerId = 0;
+		String customerEmail = null;
 		try {
 			conn = ConnectionManager.getConnection();
+			emailCheck = conn.prepareStatement("select email from customer where email=?");
+			//emailCheck = emailCheck.executeUpdate();
+			emailCheck.setString(1, newUser.getEmailAddress());
+			ResultSet rs1 = emailCheck.executeQuery();
+			
+			if (rs1.next()) {
+				status = false;
+			} else {
+			    
+			
 			insertUser = conn.prepareStatement("INSERT INTO customer (`email`,`password`,`name`,`is_deleted`)" + "VALUES ('" + newUser.getEmailAddress() + "','" 
-			+ newUser.getPassword() + "','" + newUser.getUsername()  + "','" + '1' + "'); ",Statement.RETURN_GENERATED_KEYS);
+			+ newUser.getPassword() + "','" + newUser.getUsername()  + "','" + "1" + "'); ",Statement.RETURN_GENERATED_KEYS);
 		
 			queeryresult = insertUser.executeUpdate();
 			
-			ResultSet rs = insertUser.getGeneratedKeys();
+			ResultSet rs2 = insertUser.getGeneratedKeys();
 			
 		
-	       while(rs.next()){
-	      	customerId=rs.getInt(1);
+	       while(rs2.next()){
+	      	customerId=rs2.getInt(1);
 
 	          }
 			
@@ -44,6 +56,9 @@ public class CreateUser{
 			
 			if(queeryresult == 1 && queeryresult2 == 1) {
 				status = true;
+			}else{
+				status = false;
+						}
 			}
 
 		
@@ -60,6 +75,13 @@ public class CreateUser{
 			if (insertUser != null) {
 				try {
 					insertUser.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (insertUserDetails != null) {
+				try {
+					insertUserDetails.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
