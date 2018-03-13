@@ -1,0 +1,41 @@
+//Establishing a connection requires this command
+//var="source" is the variable of the DataSource being returned. This can be changed to suit your own code.
+
+<sql:setDataSource var="source" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/the_wich" user="root" password="2v0b1c8"/>
+
+
+
+//Performing a standard SQL query. Any standard SQL query can be used in these lines,
+//including joins and other complex commands.
+//var="result" is the variable that contains every row returned by the query, as an array of Objects.
+
+<sql:query dataSource = "${source}" var = "result">
+	SELECT * FROM sandwich WHERE sandwich_id = ${param.id};
+</sql:query>
+
+
+
+//Utilizing the retrieved rows. Each row is stored as an Object in the original variable, in this case called "result"
+//In order to access any field from the result, you will need to break it down in to a forEach statement.
+<div class="container">
+	<c:forEach var = "sandwich" items = "${result.rows}">
+	//This tells jsp that every given row can be referred to as "sandwich" for this particular forEach.
+	//This is exactly like a for loop in Java, and will execute one time for each result from the previous query.
+	<div class="row">
+		<div class="col-sm-6"></div>
+		<div class="col-sm-6">
+			<div class="panel panel-primary">
+				//To access the individual result columns, you use expression language(EL)
+				//Expression language: To access a variable stored in the page,
+				//you use ${ } with the logic contained within
+				//for example, ${value1 + value2} will return the sum of these two variables.
+				//These can be page parameters, or other previously created variables
+				<div class=panel-heading><c:out value = "${sandwich.name}"/></div>
+				<div class=panel-body><c:out value = "${sandwich.description}"/></div>
+				<div class=panel-footer><c:out value = "${sandwich.price}"/></div>
+			</div>
+		</div>
+	</div>
+	</c:forEach>
+</div>
+<br><br>
