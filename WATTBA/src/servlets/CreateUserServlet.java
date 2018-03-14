@@ -44,8 +44,9 @@ public class CreateUserServlet extends HttpServlet{
 			//request.setAttribute("errorMessage", "Error. Email already exist. Please try again");
 			//response.sendRedirect("home.jsp"); 
 	        // rd.include(request,response); 
-			RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
-	         rd.include(request,response); 
+			//RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
+	        // rd.include(request,response); 
+	         response.sendRedirect("home.jsp");
 		}
 		
 		

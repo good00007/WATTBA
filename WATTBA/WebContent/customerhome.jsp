@@ -1,13 +1,16 @@
-<%@ page import=" java.sql.Statement"%>
-<%@ page import=" db.ConnectionManager"%>
-<%@ page import="java.sql.Connection"%>
-<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@page import="javax.servlet.http.*,javax.servlet.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="com.example.i18n.text"/>
+<sql:setDataSource var="source" driver="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/the_wich" user="root"
+	password="2v0b1c8" />
 <!DOCTYPE html>
 <html lang="${language}">
 <head>
@@ -57,11 +60,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"><fmt:message key="main.home" /></a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">Stores</a></li>
-        <li><a href="#">Contact</a></li>
+          <li class="active"><a href="#"><fmt:message key="main.home" /></a></li>
+        <li><a href="#"><fmt:message key="main.products" /></a></li>
+        <li><a href="#"><fmt:message key="main.deals" /></a></li>
+        <li><a href="#"><fmt:message key="main.stores" /></a></li>
+        <li><a href="testpage1.jsp"><fmt:message key="main.contact" /></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><span id="language"></span>
@@ -89,31 +92,36 @@
   </div>
 </nav>
 
-<div class="container">    
-  <div class="row">
-    <div class="col-sm-4">
+
+<sql:query dataSource = "${source}" var = "result" maxRows = "6">
+	SELECT * FROM sandwich;
+</sql:query>
+
+<c:set var = "count" scope = "page" value = "0"/>
+<c:forEach var = "sandwich" items = "${result.rows}">
+	<c:choose>
+		<c:when test = "${count == 0 || count == 3}">
+			<div class="container">
+				<div class="row">
+		</c:when>
+	</c:choose>
+	<div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-heading"><a style = "color:white" href = "customerproducts.jsp?id=${sandwich.sandwich_id}"><c:out value = "${sandwich.name}"/></a></div>
+        <div class="panel-body"><c:out value = "${sandwich.description}"/></div>
+        <div class="panel-footer"><c:out value = "${sandwich.price}"/></div>
       </div>
     </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-success">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-  </div>
-</div><br>
+	<c:choose>
+		<c:when test = "${count == 2 || count == 5}">
+			</div>
+			</div>
+			<br>
+		</c:when>
+	</c:choose>
+	<c:set var = "count" scope = "page" value = "${count + 1}"/>
+</c:forEach>
+
 
 <br><br>
 

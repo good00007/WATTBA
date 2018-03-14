@@ -18,6 +18,7 @@ public class CreateUser{
 		PreparedStatement insertUser = null;	
 		PreparedStatement insertUserDetails = null;
 		PreparedStatement emailCheck = null;
+		PreparedStatement deleteBadUser = null;
 		int queeryresult = 0;	    
 		int queeryresult2 = 0;	
 		int emailcheckQ = 0;
@@ -29,39 +30,44 @@ public class CreateUser{
 			//emailCheck = emailCheck.executeUpdate();
 			emailCheck.setString(1, newUser.getEmailAddress());
 			ResultSet rs1 = emailCheck.executeQuery();
-			
+
 			if (rs1.next()) {
 				status = false;
 			} else {
-			    
-			
-			insertUser = conn.prepareStatement("INSERT INTO customer (`email`,`password`,`name`,`is_deleted`)" + "VALUES ('" + newUser.getEmailAddress() + "','" 
-			+ newUser.getPassword() + "','" + newUser.getUsername()  + "','" + "1" + "'); ",Statement.RETURN_GENERATED_KEYS);
-		
-			queeryresult = insertUser.executeUpdate();
-			
-			ResultSet rs2 = insertUser.getGeneratedKeys();
-			
-		
-	       while(rs2.next()){
-	      	customerId=rs2.getInt(1);
 
-	          }
-			
-			insertUserDetails = conn.prepareStatement("INSERT INTO customer_detail (`customer_id`,`address`,`postal_code`,`phone_number`)" + "VALUES ('" + customerId + "','" 
-					+ userDetails.getAddress() + "','" + userDetails.getpostalCode() + "','" + userDetails.getphoneNumber()  + "'); ");
-			
-			
-			queeryresult2 = insertUserDetails.executeUpdate();
-			
-			if(queeryresult == 1 && queeryresult2 == 1) {
-				status = true;
-			}else{
-				status = false;
-						}
-			}
 
+				insertUser = conn.prepareStatement("INSERT INTO customer (`email`,`password`,`name`,`is_deleted`)" + "VALUES ('" + newUser.getEmailAddress() + "','" 
+						+ newUser.getPassword() + "','" + newUser.getUsername()  + "','" + "1" + "'); ",Statement.RETURN_GENERATED_KEYS);
+
+				queeryresult = insertUser.executeUpdate();
+
+				ResultSet rs2 = insertUser.getGeneratedKeys();
+
+
+				while(rs2.next()){
+					customerId=rs2.getInt(1);
+
+				}
+			
+
+					insertUserDetails = conn.prepareStatement("INSERT INTO customer_detail (`customer_id`,`address`,`postal_code`,`phone_number`)" + "VALUES ('" + customerId + "','" 
+							+ userDetails.getAddress() + "','" + userDetails.getpostalCode() + "','" + userDetails.getphoneNumber()  + "'); ");
+
+
+					queeryresult2 = insertUserDetails.executeUpdate();
+
+					if(queeryresult == 1 && queeryresult2 == 1) {
+						status = true;
+
+					}else{
+					
+						status = false;
+
+
+					}
+				}
 		
+
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {

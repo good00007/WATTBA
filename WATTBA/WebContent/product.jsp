@@ -1,5 +1,5 @@
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@page import="javax.servlet.http.*,javax.servlet.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ page pageEncoding="UTF-8" %>
@@ -22,13 +22,12 @@
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
       margin-bottom: 50px;
-      border-radius: 0;	
+      border-radius: 0;
     }
     
     /* Remove the jumbotron's default bottom margin */ 
      .jumbotron {
       margin-bottom: 0;
-      background-image: url("images/sandwich.jpg");
     }
    
     /* Add a gray background color and some padding to the footer */
@@ -36,17 +35,9 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
-    
-  #header {
-   background-image: url("images/sandwich.jpg");
-     
-}
-
-
   </style>
 </head>
 <body>
-
 <div class="jumbotron">
   <div class="container text-center">
     <h1>WATTBA Sandwiches</h1>      
@@ -65,30 +56,24 @@
       <a class="navbar-brand" href="#">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">	
-     
+      <ul class="nav navbar-nav">
         <li class="active"><a href="#"><fmt:message key="main.home" /></a></li>
         <li><a href="#"><fmt:message key="main.products" /></a></li>
         <li><a href="#"><fmt:message key="main.deals" /></a></li>
         <li><a href="#"><fmt:message key="main.stores" /></a></li>
-        <li><a href="testpage1.jsp"><fmt:message key="main.contact" /></a></li>
+        <li><a href="#"><fmt:message key="main.contact" /></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-     <li><span id="language"></span>
-  	    <form>
-            <select id="language" name="language" onchange="submit()">
-                <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
-               	<option value="fr" ${language == 'fr' ? 'selected' : ''}>French</option>
-            </select>
-         </form>
+      <li><span id="language"></span>
+  	    
          </li>
-        <li><a href="#" id="modalBtn"><span id="modalBtn" class="glyphicon glyphicon-user"></span>&nbsp<fmt:message key="main.login" /></a></li>
+        <li><a href="#"><span id="modalBtn" class="glyphicon glyphicon-user"></span> Sign up/Log in</a></li>
+       
         <div id="modal" class="modal">
 			<span class="closeBtn">&times;</span>
 			<div class="loginform">
 			<img src="images/user.jpg" class="user">
 				<div style="float:left; /*background: rgba(0,0,0,.5);*/">
-				
 				<h2><fmt:message key="login.login" /></h2>
 				
 				<form action="loginServlet" method="post">
@@ -126,46 +111,34 @@
 			</div>
 		</div>
 		<script src="Javascript/main.js"></script>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp<fmt:message key="main.orders" /></a></li>
-       
-     
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
 <sql:setDataSource var="source" driver="com.mysql.jdbc.Driver" 
 	url="jdbc:mysql://localhost:3306/the_wich" user="root" password="2v0b1c8"/>
 	
-<sql:query dataSource = "${source}" var = "result" maxRows = "6">
-	SELECT * FROM sandwich;
+<sql:query dataSource = "${source}" var = "result">
+	SELECT * FROM sandwich WHERE sandwich_id = ${param.id};
 </sql:query>
 
-<c:set var = "count" scope = "page" value = "0"/>
-<c:forEach var = "sandwich" items = "${result.rows}">
-	<c:choose>
-		<c:when test = "${count == 0 || count == 3}">
-			<div class="container">
-				<div class="row">
-		</c:when>
-	</c:choose>
-	<div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading"><a style = "color:white" href = "product.jsp?id=${sandwich.sandwich_id}"><c:out value = "${sandwich.name}"/></a></div>
-        <div class="panel-body"><c:out value = "${sandwich.description}"/></div>
-        <div class="panel-footer"><c:out value = "${sandwich.price}"/></div>
-      </div>
-    </div>
-	<c:choose>
-		<c:when test = "${count == 2 || count == 5}">
-			</div>
-			</div>
-			<br>
-		</c:when>
-	</c:choose>
-	<c:set var = "count" scope = "page" value = "${count + 1}"/>
-</c:forEach>
 
-<br>
+<div class="container">
+	<c:forEach var = "sandwich" items = "${result.rows}">
+	<div class="row">
+		<div class="col-sm-6"></div>
+		<div class="col-sm-6">
+			<div class="panel panel-primary">
+				<div class=panel-heading><c:out value = "${sandwich.name}"/></div>
+				<div class=panel-body><c:out value = "${sandwich.description}"/></div>
+				<div class=panel-footer><c:out value = "${sandwich.price}"/></div>
+			</div>
+		</div>
+	</div>
+	</c:forEach>
+</div>
 <br><br>
 
 <footer class="container-fluid text-center">
@@ -178,5 +151,3 @@
 
 </body>
 </html>
-
-
