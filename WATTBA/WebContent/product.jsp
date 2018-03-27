@@ -58,7 +58,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#"><fmt:message key="main.home" /></a></li>
-        <li><a href="#"><fmt:message key="main.products" /></a></li>
+        <li><a href="customerproduct.jsp"><fmt:message key="main.products" /></a></li>
         <li><a href="#"><fmt:message key="main.deals" /></a></li>
         <li><a href="#"><fmt:message key="main.stores" /></a></li>
         <li><a href="#"><fmt:message key="main.contact" /></a></li>

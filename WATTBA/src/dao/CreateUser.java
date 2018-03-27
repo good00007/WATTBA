@@ -13,7 +13,7 @@ import db.ConnectionManager;
 public class CreateUser{
 
 	public static boolean createNewUser(UserInfo newUser,UserDetails userDetails) { 
-		boolean status = false;				
+		//boolean status = false;				
 		Connection conn = null;					
 		PreparedStatement insertUser = null;	
 		PreparedStatement insertUserDetails = null;
@@ -32,7 +32,7 @@ public class CreateUser{
 			ResultSet rs1 = emailCheck.executeQuery();
 
 			if (rs1.next()) {
-				status = false;
+				return false;
 			} else {
 
 
@@ -57,11 +57,11 @@ public class CreateUser{
 					queeryresult2 = insertUserDetails.executeUpdate();
 
 					if(queeryresult == 1 && queeryresult2 == 1) {
-						status = true;
+						return true;
 
 					}else{
 					
-						status = false;
+						return false;
 
 
 					}
@@ -93,8 +93,9 @@ public class CreateUser{
 				}
 			}
 		}
+		return false;
 
-		return status;
+		
 	}
 
 }

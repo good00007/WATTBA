@@ -67,7 +67,7 @@ footer {
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#"><fmt:message key="admin.home" /></a></li>
+					<li class="active"><a href="adminhome.jsp"><fmt:message key="admin.home" /></a></li>
 					<li><a href="#"><fmt:message key="admin.editsandwich" /></a></li>
 					<li><a href="#"><fmt:message key="admin.edituser" /></a></li>
 					<li><a href="#"><fmt:message key="admin.stores" /></a></li>

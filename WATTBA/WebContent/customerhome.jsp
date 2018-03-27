@@ -20,6 +20,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="sheet" href="css/loginstyle.css">  
+    <link rel="sheet" href="css/loginstyle.css">  
+  
+
+	<script src="Javascript/main.js"></script>
+
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
@@ -60,11 +66,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-          <li class="active"><a href="#"><fmt:message key="main.home" /></a></li>
-        <li><a href="#"><fmt:message key="main.products" /></a></li>
+          <li class="#active"><a href="customerhome.jsp"><fmt:message key="main.home" /></a></li>
+        <li><a href="#product.jsp"><fmt:message key="main.products" /></a></li>
         <li><a href="#"><fmt:message key="main.deals" /></a></li>
         <li><a href="#"><fmt:message key="main.stores" /></a></li>
-        <li><a href="testpage1.jsp"><fmt:message key="main.contact" /></a></li>
+        <li><a href="contact.jsp"><fmt:message key="main.contact" /></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><span id="language"></span>
@@ -124,7 +130,19 @@
 
 
 <br><br>
-
+<% if (session.getAttribute("signedIn").equals(true)) { %>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>
+	   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+	   
+	  <script> swal({
+		   position: 'top-end',
+		   type: 'success',
+		   title: 'Account Creation Failed. Email Already Registered',
+		   showConfirmButton: false,
+		   timer: 1500
+		 })</script>
+	  
+<% } %>
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>  
   <form class="form-inline">Get deals:

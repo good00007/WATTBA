@@ -5,6 +5,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="com.example.i18n.text"/>
@@ -18,6 +19,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/style.css">  
+  <link rel="stylesheet" href="css/loginstyle.css">  
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+
+	<script src="Javascript/main.js"></script>
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
@@ -67,72 +72,114 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">	
      
-        <li class="active"><a href="#"><fmt:message key="main.home" /></a></li>
-        <li><a href="#"><fmt:message key="main.products" /></a></li>
+        <li class="active"><a href="home.jsp"><fmt:message key="main.home" /></a></li>
+        <li><a href="product.jsp"><fmt:message key="main.products" /></a></li>
         <li><a href="#"><fmt:message key="main.deals" /></a></li>
         <li><a href="#"><fmt:message key="main.stores" /></a></li>
-        <li><a href="testpage1.jsp"><fmt:message key="main.contact" /></a></li>
+        <li><a href="contact.jsp"><fmt:message key="main.contact" /></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
      <li><span id="language"></span>
-  	    <form>
+  	    <form class="form-control form-controll-sm" >
             <select id="language" name="language" onchange="submit()">
                 <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
                	<option value="fr" ${language == 'fr' ? 'selected' : ''}>French</option>
             </select>
          </form>
          </li>
-        <li><a href="#" id="modalBtn"><span id="modalBtn" class="glyphicon glyphicon-user"></span>&nbsp<fmt:message key="main.login" /></a></li>
-        <div id="modal" class="modal">
-			<span class="closeBtn">&times;</span>
-			<div class="loginform">
-			<img src="images/user.jpg" class="user">
-				<div style="float:left; /*background: rgba(0,0,0,.5);*/">
-				
-				<h2><fmt:message key="login.login" /></h2>
-				
-				<form action="loginServlet" method="post">
-				
-					<p><fmt:message key="login.email"/></p>
-					
-					<input type="text" name="email" required placeholder="<fmt:message key="placeholder.EnterEmail"/>">
-					<p><fmt:message key="login.password"/></p>
-					<input type="password" name="password" required placeholder="<fmt:message key="placeholder.EnterPassword"/>">
-					<p></p>
-					<input type="submit" value="<fmt:message key="login.login"/>" />
-					<p></p>
-					<a href="#"><fmt:message key="placeholder.Forgotpassword"/></a>
-				</form>
-				</div>
-				<div class="register" style="float:right;">
-				<h2><fmt:message key="register"/></h2>
-				<form action="CreateUser" method="post">
-					<p><fmt:message key="login.email"/></p>
-					<input type="text" name="email" required placeholder="<fmt:message key="placeholder.EnterEmail"/>">
-					<p><fmt:message key="login.password"/></p>
-					<input type="password" name="userpass" required placeholder="<fmt:message key="placeholder.EnterPassword"/>">
-					<p><fmt:message key="register.name"/></p>
-					<input type="text" name="username" required placeholder="<fmt:message key="placeholder.EnterFirstLastName"/>">
-				<p><fmt:message key="register.address"/></p>
-					<input type="text" name="address" required placeholder="e.g. 123 aabbcc st">
-					<p><fmt:message key="register.postalcode"/></p>
-					<input type="text" name="postalcode" maxlength="7" required placeholder="<fmt:message key="placeholder.EnterPostalCode"/>">
-					<p><fmt:message key="register.phone"/></p>
-					<input type="text" name="phoneNumber" maxlength="20" required placeholder="<fmt:message key="placeholder.EnterPhoneNumber"/>">
-					<p></p>
-					<input type="submit" value="<fmt:message key="register.createuser"/>" />
-				</form>
-				</div>
-			</div>
-		</div>
-		<script src="Javascript/main.js"></script>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp<fmt:message key="main.orders" /></a></li>
        
-     
+		
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> &nbsp<fmt:message key="main.orders" /></a></li>
+    
       </ul>
     </div>
   </div>
 </nav>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Login</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Register</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="loginServlet" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Remember Me</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group">
+										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+  <!-- tab-content -->
+
+
+<!-- /form -->
 <sql:setDataSource var="source" driver="com.mysql.jdbc.Driver" 
 	url="jdbc:mysql://localhost:3306/the_wich" user="root" password="2v0b1c8"/>
 	
@@ -166,6 +213,8 @@
 </c:forEach>
 
 <br>
+
+    
 <br><br>
 
 <footer class="container-fluid text-center">

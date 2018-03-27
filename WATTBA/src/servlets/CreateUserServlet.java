@@ -24,30 +24,35 @@ public class CreateUserServlet extends HttpServlet{
 	
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		   
-      
+		 
+		 HttpSession session = request.getSession(false);
 		String newUserName = request.getParameter("username");
 		String newUserEmail = request.getParameter("email");
 		String newUserPassword = request.getParameter("userpass");
 		String newUserAddress = request.getParameter("address");
 		String newUserPostal = request.getParameter("postalcode");
 		String newUserPhone = request.getParameter("phoneNumber");
-		
-		
+		String fail = "failed";
+		String success = "success";
 		UserInfo user = new UserInfo(newUserName, newUserEmail, newUserPassword);
 		UserDetails userDetails = new UserDetails(newUserAddress, newUserPostal, newUserPhone);
 		if (CreateUser.createNewUser(user,userDetails)) {
-			response.sendRedirect("home.jsp");
-		 // RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
-          //rd.forward(request,response); 
-		}else{
-			//request.setAttribute("errorMessage", "Error. Email already exist. Please try again");
-			//response.sendRedirect("home.jsp"); 
-	        // rd.include(request,response); 
-			//RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
-	        // rd.include(request,response); 
-	         response.sendRedirect("home.jsp");
-		}
+			session.setAttribute("creation", success);
+			String jsp1 = null;
+			jsp1 = "home.jsp";
+			response.sendRedirect(jsp1);
+			 // RequestDispatcher rd=request.getRequestDispatcher("home.jsp");  
+	          //rd.forward(request,response); 
+			}else{
+				session.setAttribute("creation", fail);
+				String jsp = null;
+				jsp = "home.jsp";
+	            
+            	response.sendRedirect(jsp);
+		        
+			}
+		
+		
 		
 		
 		out.close();
